@@ -7,9 +7,9 @@ def fix_tree(app):
     texts = app.findall('ImageTexture')
     if mat is None:
         return
-    for tex in texts:
+    for idx, tex in enumerate(texts):
         app.remove(tex)
-        app.insert(0, tex)
+        app.insert(idx, tex)
 
 
 def is_broken_tree(app):
