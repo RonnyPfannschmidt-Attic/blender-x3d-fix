@@ -1,4 +1,5 @@
 #!/bin/python
+from __future__ import print_function
 from xml.etree.ElementTree import parse, tostring
 
 def fix_tree(app):
@@ -21,7 +22,7 @@ def is_broken_tree(app):
     elems = list(app)
     mat_idx = elems.index(mat)
     for tex in texts:
-        print mat_idx, elems.index(tex)
+        print(mat_idx, elems.index(tex))
         if mat_idx<elems.index(tex):
             return True
     return False
@@ -43,7 +44,7 @@ if __name__ == '__main__':
     fix_document(doc)
 
     if opts.target is None:
-        print tostring(doc.getroot())
+        print(tostring(doc.getroot()))
     else:
         doc.write(opts.target)
 
